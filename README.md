@@ -1,1 +1,207 @@
-# Intranet
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cedeinco · Intranet</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#fdf6f0; --card:#ffffff; --text:#2c1e18; --muted:#8a746a; --line:#f0e4da;
+  --terracotta:#B71C1C; --terracotta-light:#E64A19;
+  --mustard:#F57C00; --mustard-light:#FFB74D;
+  --soft-terracotta:#FFF3E0; --soft-red:#FFEBEE;
+  --verde:#2E7D32; --soft-verde:#E8F5E9;
+  --azul:#1565C0; --soft-azul:#E3F2FD; --gris:#EEE7E1;
+  --morado:#6A1B9A; --soft-morado:#F3E5F5;
+  --shadow-sm:0 1px 3px rgba(183,28,28,0.08); --shadow:0 4px 16px rgba(183,28,28,0.10); --shadow-lg:0 12px 40px rgba(183,28,28,0.22);
+  --radius:16px; --radius-sm:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+
+/* ===== TOPBAR ===== */
+.topbar{background:linear-gradient(120deg,#B71C1C,#E64A19);color:#fff;padding:0 26px;height:58px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 3px 14px rgba(183,28,26,0.28);}
+.topbar-left{display:flex;align-items:center;gap:12px;min-width:0;}
+.topbar-logo{height:34px;width:auto;background:#fff;border-radius:8px;padding:3px 6px;}
+.topbar-title{font-size:14px;font-weight:700;}
+.topbar-sub{font-size:11px;opacity:0.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.topbar-badge{background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);padding:6px 14px;border-radius:999px;font-size:11.5px;font-weight:600;white-space:nowrap;}
+
+/* ===== BIENVENIDA ===== */
+.app{max-width:980px;margin:0 auto;padding:28px 20px 60px;}
+.hero{background:linear-gradient(160deg,#B71C1C 0%,#E64A19 55%,#F57C00 130%);color:#fff;border-radius:20px;box-shadow:var(--shadow-lg);padding:28px 30px;margin-bottom:26px;display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden;position:relative;}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.10);}
+.hero-txt{position:relative;z-index:1;}
+.hero h1{font-size:24px;font-weight:700;margin-bottom:4px;}
+.hero p{font-size:13.5px;opacity:0.9;}
+.hero-logo-wrap{position:relative;z-index:1;background:#fff;border-radius:14px;padding:12px 16px;flex-shrink:0;}
+.hero-logo{height:56px;width:auto;display:block;}
+
+/* ===== SECCIONES ===== */
+.seccion-titulo{font-size:11.5px;font-weight:700;color:var(--terracotta);text-transform:uppercase;letter-spacing:0.5px;margin:0 2px 12px;}
+.seccion{margin-bottom:26px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+
+/* ===== TARJETAS ===== */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:18px 20px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--terracotta-light);}
+.card-top{display:flex;align-items:center;gap:12px;}
+.icono{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;flex-shrink:0;}
+.card-nombre{font-size:14.5px;font-weight:700;color:var(--text);}
+.card-tipo{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--muted);font-weight:500;}
+.card-desc{font-size:13px;color:#5a4a42;line-height:1.45;flex-grow:1;}
+.card-pie{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--line);}
+.badge{font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:0.3px;white-space:nowrap;}
+.abrir{font-size:12.5px;font-weight:700;color:var(--terracotta);}
+
+.i-rojo{background:var(--soft-red);} .b-rojo{background:var(--soft-red);color:var(--terracotta);}
+.i-naranja{background:var(--soft-terracotta);} .b-naranja{background:var(--soft-terracotta);color:var(--mustard);}
+.i-verde{background:var(--soft-verde);} .b-verde{background:var(--soft-verde);color:var(--verde);}
+.i-azul{background:var(--soft-azul);} .b-azul{background:var(--soft-azul);color:var(--azul);}
+.i-morado{background:var(--soft-morado);} .b-morado{background:var(--soft-morado);color:var(--morado);}
+.i-gris{background:var(--gris);} .b-gris{background:var(--gris);color:var(--muted);}
+
+footer{text-align:center;font-size:12px;color:var(--muted);padding:10px 16px 30px;}
+footer a{color:var(--terracotta);font-weight:700;text-decoration:none;}
+
+@media(max-width:700px){
+  .topbar{padding:0 14px;}
+  .topbar-sub,.topbar-badge{display:none;}
+  .topbar-title{font-size:13px;}
+  .topbar-logo{height:30px;}
+  .app{padding:20px 12px 50px;}
+  .hero{flex-direction:column-reverse;align-items:flex-start;padding:22px;}
+  .hero h1{font-size:20px;}
+  .hero-logo{height:44px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <img class="topbar-logo" src="https://lh3.googleusercontent.com/d/11owWzSHbzaGfw0LxZaFFWBFKk_fdTN1a" alt="Cedeinco">
+    <div style="min-width:0">
+      <div class="topbar-title">Intranet</div>
+      <div class="topbar-sub">Cedeinco · Aplicaciones internas</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-badge" id="reloj">🕒 --:--</span>
+  </div>
+</div>
+
+<div class="app">
+
+  <div class="hero">
+    <div class="hero-txt">
+      <h1 id="saludo">Bienvenido</h1>
+      <p id="fecha">Todas las aplicaciones de Cedeinco en un solo lugar.</p>
+    </div>
+    <div class="hero-logo-wrap">
+      <img class="hero-logo" src="https://lh3.googleusercontent.com/d/11owWzSHbzaGfw0LxZaFFWBFKk_fdTN1a" alt="Logo Cedeinco">
+    </div>
+  </div>
+
+  <!-- ===== Gestión comercial ===== -->
+  <div class="seccion">
+    <div class="seccion-titulo">Gestión comercial</div>
+    <div class="grid">
+      <a class="card" target="_blank" rel="noopener"
+         href="https://script.google.com/macros/s/AKfycbyW3dKm9rQuVZf6ecg8UkFgfxwjAoGsYQp_O-lv1VKRq3bLOxInZUhofSxcrTove-IG/exec">
+        <div class="card-top">
+          <div class="icono i-rojo">📋</div>
+          <div><div class="card-nombre">Licitaciones</div><div class="card-tipo">Bogotá y alrededores</div></div>
+        </div>
+        <div class="card-desc">Tablero de licitaciones, expedientes, calendario de cierres y búsqueda en SECOP II.</div>
+        <div class="card-pie"><span class="badge b-rojo">Apps Script</span><span class="abrir">Abrir ↗</span></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== Campañas WhatsApp ===== -->
+  <div class="seccion">
+    <div class="seccion-titulo">Campañas WhatsApp</div>
+    <div class="grid">
+      <a class="card" target="_blank" rel="noopener"
+         href="https://script.google.com/macros/s/AKfycbxEzFuO3xT9fFfUEQ5wYf8-Ee8g09_Dh0xGNprB2aMx61eXNhZdGsn4fd4xFzJfqbSsrA/exec">
+        <div class="card-top">
+          <div class="icono i-verde">💬</div>
+          <div><div class="card-nombre">Bot de WhatsApp</div><div class="card-tipo">Envío de campañas</div></div>
+        </div>
+        <div class="card-desc">Panel de envío y control de las campañas por WhatsApp.</div>
+        <div class="card-pie"><span class="badge b-verde">Apps Script</span><span class="abrir">Abrir ↗</span></div>
+      </a>
+
+      <a class="card" target="_blank" rel="noopener"
+         href="https://docs.google.com/spreadsheets/d/1jymLyQ_PemIHjhaHijB1hPDgVCOsTrkWSqL65FuY4ho/edit?gid=0#gid=0">
+        <div class="card-top">
+          <div class="icono i-naranja">📊</div>
+          <div><div class="card-nombre">Hoja de la campaña</div><div class="card-tipo">Base de datos</div></div>
+        </div>
+        <div class="card-desc">Contactos y mensajes de la campaña en Google Sheets.</div>
+        <div class="card-pie"><span class="badge b-naranja">Google Sheets</span><span class="abrir">Abrir ↗</span></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== Cuentas de cobro ===== -->
+  <div class="seccion">
+    <div class="seccion-titulo">Cuentas de cobro</div>
+    <div class="grid">
+      <a class="card" target="_blank" rel="noopener"
+         href="https://docs.google.com/forms/d/e/1FAIpQLSd2BP8BoPxop3qOEgg3STr14Vst2_32cLHuitQDL6fdSRK4Rw/viewform">
+        <div class="card-top">
+          <div class="icono i-morado">📝</div>
+          <div><div class="card-nombre">Formulario de cuenta de cobro</div><div class="card-tipo">Radicación</div></div>
+        </div>
+        <div class="card-desc">Radica una nueva cuenta de cobro con sus soportes.</div>
+        <div class="card-pie"><span class="badge b-morado">Google Forms</span><span class="abrir">Abrir ↗</span></div>
+      </a>
+
+      <a class="card" target="_blank" rel="noopener"
+         href="https://cedeinco.github.io/cedeinco-ctas/">
+        <div class="card-top">
+          <div class="icono i-azul">✅</div>
+          <div><div class="card-nombre">Aprobación de cuentas de cobro</div><div class="card-tipo">Panel de gestión</div></div>
+        </div>
+        <div class="card-desc">Revisa, aprueba o rechaza cuentas y genera el archivo de pago.</div>
+        <div class="card-pie"><span class="badge b-azul">Panel web</span><span class="abrir">Abrir ↗</span></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== Institucional ===== -->
+  <div class="seccion">
+    <div class="seccion-titulo">Institucional</div>
+    <div class="grid">
+      <a class="card" target="_blank" rel="noopener" href="https://cedeinco.com.co/">
+        <div class="card-top">
+          <div class="icono i-gris">🌐</div>
+          <div><div class="card-nombre">Página web</div><div class="card-tipo">cedeinco.com.co</div></div>
+        </div>
+        <div class="card-desc">Sitio oficial de Cedeinco: servicios, galería y cotizaciones.</div>
+        <div class="card-pie"><span class="badge b-gris">Sitio web</span><span class="abrir">Abrir ↗</span></div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>© <span id="anio"></span> Cedeinco · <a href="https://cedeinco.com.co/" target="_blank" rel="noopener">cedeinco.com.co</a></footer>
+
+<script>
+function actualizar() {
+  var d = new Date(), h = d.getHours();
+  document.getElementById('reloj').textContent = '🕒 ' + d.toLocaleTimeString('es-CO', { hour: 'numeric', minute: '2-digit' });
+  document.getElementById('saludo').textContent = h < 12 ? 'Buenos días 👋' : h < 19 ? 'Buenas tardes 👋' : 'Buenas noches 👋';
+  var f = d.toLocaleDateString('es-CO', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  document.getElementById('fecha').textContent = f.charAt(0).toUpperCase() + f.slice(1) + ' · Todas las aplicaciones de Cedeinco en un solo lugar.';
+}
+actualizar(); setInterval(actualizar, 30000);
+document.getElementById('anio').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
